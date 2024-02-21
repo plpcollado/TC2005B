@@ -13,7 +13,7 @@ public class Wall : MonoBehaviour
         foreach (bool b in lugares)
             Debug.Log(b);
 
-        //Visualizar usand la lógica
+        //Visualizar usando la lógica
         for (int x = 0; x < 10; x++)
         {
             float dx = x - 5 + 0.5f;
@@ -26,7 +26,7 @@ public class Wall : MonoBehaviour
 
     }
 
-    void CreateWall()
+    /*void CreateWall()
     {
         for (int i = 0; i < 5; i++)
         {
@@ -45,25 +45,30 @@ public class Wall : MonoBehaviour
             GameObject cubito = CreateCube(new Vector3(i, 1, 0));
             AddRigidbodyAndCollider(cubito);
         }
-    }
+    }*/
 
-    GameObject CreateCube(Vector3 position)
+    // CreateCube method receives a position and a name, and creates a cube in that position with that name.
+    GameObject CreateCube(Vector3 pos, string name = "cubito")
     {
-        GameObject cubito = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cubito.name = "Cubito";
-        cubito.transform.position = position;
-        cubito.transform.localScale = new Vector3(1, 0.5f, 0.5f);
-        MeshRenderer mr = cubito.GetComponent<MeshRenderer>();
-        mr.material.color = new Color(1, 1, 0);
-        return cubito;
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.position = pos;
+        cube.name = name;
+        //Add Rigidbody and Collider to this cube
+        Rigidbody rb = cube.AddComponent<Rigidbody>();
+        rb.mass = 1f; // Ajustar mas sengún se requiera
+
+        BoxCollider boxCollider = cube.AddComponent<BoxCollider>();
+        boxCollider.size = new Vector3(1, 0.5f, 0.5f);
+
+        return cube;
     }
 
-    void AddRigidbodyAndCollider(GameObject cube)
+    /*void AddRigidbodyAndCollider(GameObject cube)
     {
         Rigidbody rb = cube.AddComponent<Rigidbody>();
         rb.mass = 1f; // Ajustar mas sengún se requiera
 
         BoxCollider boxCollider = cube.AddComponent<BoxCollider>();
         boxCollider.size = new Vector3(1, 0.5f, 0.5f);
-    }
+    }*/
 }

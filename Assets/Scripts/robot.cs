@@ -59,6 +59,7 @@ public class robot : MonoBehaviour
 
             Rigidbody rb = disparo.GetComponent<Rigidbody>();   
             //rb.mass = 5;
+            Collider col = disparo.GetComponent<Collider>();
             rb.AddForce(new Vector3(0, 0, 10000));
             Destroy(disparo, 5.0f);
         }
