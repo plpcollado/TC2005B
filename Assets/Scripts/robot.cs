@@ -26,7 +26,7 @@ public class robot : MonoBehaviour
         rArm.transform.SetParent(GameObject.Find("ROBOT").transform);
         robotArms.Add(rArm);
 
-        gameObject.transform.position = new Vector3(0, 0, 50);
+        gameObject.transform.position = new Vector3(0, 0, -5);
     }
 
     // Update is called once per frame
@@ -59,7 +59,7 @@ public class robot : MonoBehaviour
 
             Rigidbody rb = disparo.AddComponent<Rigidbody>();   
             rb.mass = 5;
-            rb.AddForce(new Vector3(0, 0, -10000));
+            rb.AddForce(new Vector3(0, 0, 10000));
             Destroy(disparo, 5.0f);
         }
     }
