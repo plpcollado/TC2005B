@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class robot : MonoBehaviour
 {
-    //public GameObject bala;
+    public GameObject bala;
     List<GameObject> robotArms;
     // Start is called before the first frame update
     void Start()
@@ -50,15 +50,15 @@ public class robot : MonoBehaviour
         }   
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject disparo = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            disparo.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            GameObject disparo = Instantiate(bala);
+            //disparo.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 
             //Alternate shooting arms
             disparo.transform.position = robotArms[0].transform.position + new Vector3(0, 0, -0.7f);
             robotArms.Reverse();
 
-            Rigidbody rb = disparo.AddComponent<Rigidbody>();   
-            rb.mass = 5;
+            Rigidbody rb = disparo.GetComponent<Rigidbody>();   
+            //rb.mass = 5;
             rb.AddForce(new Vector3(0, 0, 10000));
             Destroy(disparo, 5.0f);
         }

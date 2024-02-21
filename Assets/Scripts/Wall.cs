@@ -6,7 +6,24 @@ public class Wall : MonoBehaviour
 {
     void Start()
     {
-        CreateWall();
+        //CreateWall();
+        Logic.MakeBricks();
+        List<bool> lugares = Logic.bricks;
+
+        foreach (bool b in lugares)
+            Debug.Log(b);
+
+        //Visualizar usand la lógica
+        for (int x = 0; x < 10; x++)
+        {
+            float dx = x - 5 + 0.5f;
+            if (lugares[x])
+            {
+                CreateCube(new Vector3(dx, 0.25f, 0), "tabique_" + x.ToString());
+            }
+        }
+
+
     }
 
     void CreateWall()
