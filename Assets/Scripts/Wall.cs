@@ -39,6 +39,8 @@ public class Wall : MonoBehaviour
         MeshRenderer mr = cubito.GetComponent<MeshRenderer>();
         mr.material.color = new Color(1, 1, 0);
         cubito.AddComponent<ClickAndDrag>();
+        MeshCollider mc = cubito.GetComponent<MeshCollider>();
+        mc.convex = true;
         return cubito;
     }
 
