@@ -38,6 +38,7 @@ public class Wall : MonoBehaviour
         cubito.transform.localScale = new Vector3(1, 0.5f, 0.5f);
         MeshRenderer mr = cubito.GetComponent<MeshRenderer>();
         mr.material.color = new Color(1, 1, 0);
+        cubito.AddComponent<ClickAndDrag>();
         return cubito;
     }
 
@@ -45,6 +46,7 @@ public class Wall : MonoBehaviour
     {
         Rigidbody rb = cube.AddComponent<Rigidbody>();
         rb.mass = 1f; // Ajustar mas sengún se requiera
+
 
         BoxCollider boxCollider = cube.AddComponent<BoxCollider>();
         boxCollider.size = new Vector3(1, 0.5f, 0.5f);
