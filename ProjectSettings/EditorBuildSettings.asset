@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Clase2.unity
     guid: e35c53e8f6f3d42d2aaf9dee3d150bdc
+  - enabled: 1
+    path: Assets/Scenes/Persistence1.unity
+    guid: 54376ba45ad8646f8ba1af926d14cf95
+  - enabled: 1
+    path: Assets/Scenes/Persistence2.unity
+    guid: 20324da10b61e450bb1423383d09d3e6
   m_configObjects: {}
